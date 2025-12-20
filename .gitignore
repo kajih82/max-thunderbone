@@ -1,0 +1,28 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Import cache
+.import/
+
+# Export presets (may contain sensitive data)
+export_presets.cfg
+
+# Mono/C# (if you add C# later)
+.mono/
+data_*/
+mono_crash.*.json
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Build outputs
+builds/
+*.exe
+*.pck
+*.zip
+*.dmg
+*.apk
