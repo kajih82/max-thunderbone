@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1spfbmle01dd"]
+[gd_scene load_steps=11 format=3 uid="uid://c1spfbmle01dd"]
 
 [ext_resource type="Texture2D" uid="uid://dyq43e8rllak2" path="res://assets/textures/prototype/Dark/texture_09.png" id="1_1ykrc"]
 [ext_resource type="Texture2D" uid="uid://dvsycv3tc8rb2" path="res://assets/textures/prototype/Red/texture_10.png" id="2_htrvu"]
 [ext_resource type="PackedScene" uid="uid://bex2mysh08fie" path="res://scenes/environment/world_environment.tscn" id="3_6lfjr"]
+[ext_resource type="PackedScene" uid="uid://bkx5qbdccx5fp" path="res://scenes/player/player_controller.tscn" id="4_6lfjr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycx7s"]
 albedo_texture = ExtResource("1_1ykrc")
@@ -22,6 +23,9 @@ size = Vector3(2.5, 0.65, 2)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5e4g"]
 albedo_texture = ExtResource("2_htrvu")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htrvu"]
+size = Vector3(2.5, 0.65, 2)
 
 [node name="Prototype Level" type="Node3D"]
 
@@ -43,5 +47,10 @@ mesh = SubResource("BoxMesh_qd0o6")
 surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CrouchCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
+shape = SubResource("BoxShape3D_htrvu")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_6lfjr")]
+
+[node name="PlayerController" parent="." instance=ExtResource("4_6lfjr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11224222, 1.4402857, 5.3795156)
