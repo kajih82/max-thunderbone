@@ -18,14 +18,14 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qd0o6"]
-size = Vector3(2.5, 0.65, 2)
+size = Vector3(3, 0.5, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5e4g"]
 albedo_texture = ExtResource("2_htrvu")
 uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_htrvu"]
-size = Vector3(2.5, 0.65, 2)
+size = Vector3(3, 0.5, 2)
 
 [node name="Prototype Level" type="Node3D"]
 
