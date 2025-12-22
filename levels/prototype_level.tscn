@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1spfbmle01dd"]
+[gd_scene load_steps=12 format=3 uid="uid://c1spfbmle01dd"]
 
 [ext_resource type="Texture2D" uid="uid://dyq43e8rllak2" path="res://assets/textures/prototype/Dark/texture_09.png" id="1_1ykrc"]
 [ext_resource type="Texture2D" uid="uid://dvsycv3tc8rb2" path="res://assets/textures/prototype/Red/texture_10.png" id="2_htrvu"]
@@ -27,6 +27,8 @@ uv1_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_htrvu"]
 size = Vector3(3, 0.5, 2)
 
+[sub_resource type="BoxMesh" id="BoxMesh_6lfjr"]
+
 [node name="Prototype Level" type="Node3D"]
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -53,4 +55,8 @@ shape = SubResource("BoxShape3D_htrvu")
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_6lfjr")]
 
 [node name="PlayerController" parent="." instance=ExtResource("4_6lfjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11224222, 1.4402857, 5.3795156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112, 1.51, 5.38)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5997767, -5.6921177)
+mesh = SubResource("BoxMesh_6lfjr")

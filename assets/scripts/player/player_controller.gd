@@ -6,13 +6,16 @@ class_name PlayerController extends CharacterBody3D
 @export var state_chart : StateChart
 @export var standing_collision : CollisionShape3D
 @export var crouching_collision : CollisionShape3D
+@export var crouch_check : ShapeCast3D
 @export_category("Easing")
 @export var acceleration : float = 0.2
 @export var deceleration : float = 0.5
-@export_category("Speed")
+@export_category("Speed Settings")
 @export var default_speed : float = 7.0
 @export var sprint_speed : float = 3.0
 @export var crouch_speed : float = -5.0
+@export_category("Jump Settings")
+@export var jump_velocity : float = 5.0
 
 var _input_dir : Vector2 = Vector2.ZERO
 var _movement_velocity : Vector3 = Vector3.ZERO
@@ -51,7 +54,6 @@ func walk() -> void:
 	sprint_modifier = 0.0
 	
 func stand() -> void:
-	print("this should not fire")
 	crouch_modifier = 0.0
 	standing_collision.disabled = false
 	crouching_collision.disabled = true
@@ -60,3 +62,6 @@ func crouch() -> void:
 	crouch_modifier = crouch_speed
 	standing_collision.disabled = true
 	crouching_collision.disabled = false
+
+func jump() -> void:
+	velocity.y += jump_velocity

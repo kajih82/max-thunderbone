@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dese1j8f6smyt"]
+
+[node name="MainScene" type="Node"]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="CurrentLevel" type="Node3D" parent="."]
+
+[node name="MyLevel" type="Node3D" parent="CurrentLevel"]
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
