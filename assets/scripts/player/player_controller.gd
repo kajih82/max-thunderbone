@@ -3,6 +3,7 @@ class_name PlayerController extends CharacterBody3D
 @export var debug : bool = false
 @export_category("References")
 @export var camera : CameraController
+@export var camera_effects : CameraEffects
 @export var state_chart : StateChart
 @export var standing_collision : CollisionShape3D
 @export var crouching_collision : CollisionShape3D
@@ -17,12 +18,16 @@ class_name PlayerController extends CharacterBody3D
 @export var crouch_speed : float = -5.0
 @export_category("Jump Settings")
 @export var jump_velocity : float = 5.0
+@export var fall_velocity_threshold : float = -5.0
+@export_category("Data Helpers")
+@export var data_relative_velocity : Vector3
 
 var _input_dir : Vector2 = Vector2.ZERO
 var _movement_velocity : Vector3 = Vector3.ZERO
 var sprint_modifier : float = 0.0
 var crouch_modifier : float = 0.0
 var speed : float = 0.0
+var current_fall_velocity : float
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -66,3 +71,12 @@ func crouch() -> void:
 
 func jump() -> void:
 	velocity.y += jump_velocity
+
+func check_fall_speed() -> bool:
+	if current_fall_velocity < fall_velocity_threshold:
+		current_fall_velocity = 0.0
+		return true
+	else:
+		current_fall_velocity = 0.0
+		return false
+	

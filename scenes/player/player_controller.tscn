@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkx5qbdccx5fp"]
+[gd_scene load_steps=25 format=3 uid="uid://bkx5qbdccx5fp"]
 
 [ext_resource type="Script" uid="uid://dcbh1covn75d1" path="res://assets/scripts/player/player_controller.gd" id="1_0cfoe"]
 [ext_resource type="Script" uid="uid://3loa8bxqkcam" path="res://assets/scripts/player/components/mouse_capture.gd" id="1_4q5nu"]
 [ext_resource type="Script" uid="uid://dlrfj16d54iw5" path="res://assets/scripts/player/camera_controller.gd" id="2_0nonk"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="2_nwn0c"]
+[ext_resource type="Script" uid="uid://da3dcxjivn15i" path="res://assets/scripts/player/camera_effects.gd" id="4_cv1cy"]
 [ext_resource type="Script" uid="uid://b2tbl07vemlkt" path="res://assets/scripts/player/components/interaction_raycast.gd" id="4_kqh78"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="4_rkuj1"]
 [ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="5_ers80"]
@@ -28,10 +29,11 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ggkdx"]
 
-[node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera", "state_chart", "standing_collision", "crouching_collision", "crouch_check", "interaction_raycast")]
+[node name="PlayerController" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_effects", "state_chart", "standing_collision", "crouching_collision", "crouch_check", "interaction_raycast")]
 script = ExtResource("1_0cfoe")
 debug = true
 camera = NodePath("CameraController")
+camera_effects = NodePath("CameraController/Camera3D")
 state_chart = NodePath("StateChart")
 standing_collision = NodePath("StandingCollision")
 crouching_collision = NodePath("CrouchingCollision")
@@ -68,7 +70,9 @@ debug = true
 player_controller = NodePath("..")
 component_mouse_capture = NodePath("../Components/MouseCapture")
 
-[node name="Camera3D" type="Camera3D" parent="CameraController"]
+[node name="Camera3D" type="Camera3D" parent="CameraController" node_paths=PackedStringArray("player")]
+script = ExtResource("4_cv1cy")
+player = NodePath("../..")
 
 [node name="InteractionRaycast" type="RayCast3D" parent="CameraController/Camera3D"]
 target_position = Vector3(0, 0, -3)

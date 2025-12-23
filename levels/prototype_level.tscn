@@ -52,10 +52,50 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CrouchCheck"]
 shape = SubResource("BoxShape3D_htrvu")
 
+[node name="Platform1" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59903, 1.0079916, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Platform1"]
+mesh = SubResource("BoxMesh_qd0o6")
+surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Platform1"]
+shape = SubResource("BoxShape3D_htrvu")
+
+[node name="platform2" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59903, 1.7091265, -3.3065524)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/platform2"]
+mesh = SubResource("BoxMesh_qd0o6")
+surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/platform2"]
+shape = SubResource("BoxShape3D_htrvu")
+
+[node name="platform3" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59903, 2.3033507, -6.736085)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/platform3"]
+mesh = SubResource("BoxMesh_qd0o6")
+surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/platform3"]
+shape = SubResource("BoxShape3D_htrvu")
+
+[node name="platform4" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59903, 10.02661, -9.972093)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/platform4"]
+mesh = SubResource("BoxMesh_qd0o6")
+surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/platform4"]
+shape = SubResource("BoxShape3D_htrvu")
+
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_6lfjr")]
 
 [node name="PlayerController" parent="." instance=ExtResource("4_6lfjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112, 1.51, 5.38)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5646048, 11.438234, -10.3294935)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5997767, -5.6921177)
