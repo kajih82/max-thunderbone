@@ -144,9 +144,9 @@ event = &"onSprinting"
 delay_in_seconds = "0.0"
 metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
 
-[node name="OnAirborne" type="Node" parent="StateChart/Root/Movement/Grounded/Moving"]
+[node name="OnAirborne" type="Node" parent="StateChart/Root/Movement/Grounded"]
 script = ExtResource("8_mxnws")
-to = NodePath("../../../Airborne")
+to = NodePath("../../Airborne")
 event = &"onAirborne"
 delay_in_seconds = "0.0"
 metadata/_custom_type_script = "uid://cf1nsco3w0mf6"
