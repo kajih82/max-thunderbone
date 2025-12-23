@@ -7,6 +7,7 @@ class_name PlayerController extends CharacterBody3D
 @export var standing_collision : CollisionShape3D
 @export var crouching_collision : CollisionShape3D
 @export var crouch_check : ShapeCast3D
+@export var interaction_raycast : RayCast3D
 @export_category("Easing")
 @export var acceleration : float = 0.2
 @export var deceleration : float = 0.5

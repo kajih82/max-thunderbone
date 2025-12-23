@@ -37,9 +37,7 @@ func update_camera_height(delta:float, direction:int) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Camera starting Y position: ", position.y)
-	print("Crouch offset: ", crouch_offset)
-	print("Default height: ", DEFAULT_HEIGHT)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

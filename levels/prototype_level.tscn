@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1spfbmle01dd"]
+[gd_scene load_steps=13 format=3 uid="uid://c1spfbmle01dd"]
 
 [ext_resource type="Texture2D" uid="uid://dyq43e8rllak2" path="res://assets/textures/prototype/Dark/texture_09.png" id="1_1ykrc"]
 [ext_resource type="Texture2D" uid="uid://dvsycv3tc8rb2" path="res://assets/textures/prototype/Red/texture_10.png" id="2_htrvu"]
 [ext_resource type="PackedScene" uid="uid://bex2mysh08fie" path="res://scenes/environment/world_environment.tscn" id="3_6lfjr"]
 [ext_resource type="PackedScene" uid="uid://bkx5qbdccx5fp" path="res://scenes/player/player_controller.tscn" id="4_6lfjr"]
+[ext_resource type="PackedScene" uid="uid://hakvg584kq6g" path="res://scenes/system/user_interface.tscn" id="5_qd0o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycx7s"]
 albedo_texture = ExtResource("1_1ykrc")
@@ -42,14 +43,13 @@ mesh = SubResource("BoxMesh_htrvu")
 shape = SubResource("BoxShape3D_6lfjr")
 
 [node name="CrouchCheck" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/CrouchCheck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
 mesh = SubResource("BoxMesh_qd0o6")
 surface_material_override/0 = SubResource("StandardMaterial3D_i5e4g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/CrouchCheck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.825, 0)
 shape = SubResource("BoxShape3D_htrvu")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_6lfjr")]
@@ -60,3 +60,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112, 1.51, 5.38)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5997767, -5.6921177)
 mesh = SubResource("BoxMesh_6lfjr")
+
+[node name="UserInterface" parent="." instance=ExtResource("5_qd0o6")]
