@@ -9,6 +9,7 @@ class_name PlayerController extends CharacterBody3D
 @export var crouching_collision : CollisionShape3D
 @export var crouch_check : ShapeCast3D
 @export var interaction_raycast : RayCast3D
+@export var step_handler : StepHandlerComponent
 @export_category("Easing")
 @export var acceleration : float = 0.2
 @export var deceleration : float = 0.5
@@ -49,6 +50,9 @@ func _physics_process(delta: float) -> void:
 	velocity = _movement_velocity
 	
 	move_and_slide()
+	
+	if is_on_floor():
+		step_handler.handle_step_climbing()
 
 func update_rotation(rotation_input) -> void:
 	global_transform.basis = Basis.from_euler(rotation_input)
@@ -79,4 +83,6 @@ func check_fall_speed() -> bool:
 	else:
 		current_fall_velocity = 0.0
 		return false
-	
+		
+func get_input_direction() -> Vector2:
+	return _input_dir

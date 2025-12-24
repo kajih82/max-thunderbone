@@ -9,3 +9,4 @@ func _process(_delta: float) -> void:
 		player_controller.state_chart.set_expression_property("Player Velocity", player_controller.velocity)
 		player_controller.state_chart.set_expression_property("Player Hitting Head", player_controller.crouch_check.is_colliding())
 		player_controller.state_chart.set_expression_property("Looking At: ", player_controller.interaction_raycast.current_object)
+		player_controller.state_chart.set_expression_property("Step Status: ", player_controller.step_handler.step_status)
