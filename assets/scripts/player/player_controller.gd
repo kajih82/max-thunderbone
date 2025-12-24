@@ -29,8 +29,12 @@ var sprint_modifier : float = 0.0
 var crouch_modifier : float = 0.0
 var speed : float = 0.0
 var current_fall_velocity : float
+var previous_velocity : Vector3
 
 func _physics_process(delta: float) -> void:
+	
+	previous_velocity = velocity
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	

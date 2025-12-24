@@ -21,6 +21,13 @@ func handle_step_climbing():
 			var measured_height = _measure_step_height(collision)
 			if measured_height > MIN_STEP_HEIGHT and measured_height <= step_height and _is_valid_step_direction(collision):
 				player.global_position.y += measured_height
+				
+				# Keep the player velocity from the previous frame; no stopped velocity 
+				player.velocity = player.previous_velocity
+				
+				# Enable camera smoothing
+				player.camera.smooth_step(measured_height)
+				
 				step_status = "Step found! Height: " + str(measured_height)
 			else:
 				step_status = "Step too high: " + str(measured_height)
